@@ -1,0 +1,518 @@
+/*
+ * Main stylesheet for the V.360 website.
+ *
+ * This file implements Vanderbilt University's brand guidelines for
+ * colour, typography and spacing. Sections alternate between light
+ * backgrounds to create a visual rhythm, while the hero header
+ * emphasises the platform's mission with large type and simple stats.
+ */
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'proxima-nova', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.75;
+  color: #555555; /* --vu-text */
+  background-color: #FAFAFA; /* --vu-grey-light */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Skip Link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #D8AB4C; /* --vu-gold */
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Typography - Matching Vanderbilt Exactly */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'proxima-nova-condensed', 'proxima-nova', sans-serif;
+  font-weight: 300;
+  line-height: 1.2;
+  color: #333333; /* --vu-black */
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 100;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: 2.25rem;
+  font-weight: 300;
+  line-height: 1.25;
+}
+
+h3 {
+  font-size: 1.75rem;
+  font-weight: 400;
+}
+
+h4 {
+  font-size: 1.375rem;
+  font-weight: 500;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+/* Container - Vanderbilt Spec */
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Navigation - Exact Match */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #FFFFFF;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.site-header.scrolled {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.main-navigation {
+  height: 80px;
+  transition: height 0.3s ease;
+}
+
+.scrolled .main-navigation {
+  height: 60px;
+}
+
+.nav-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.site-brand {
+  display: flex;
+  align-items: baseline;
+  text-decoration: none;
+  gap: 8px;
+}
+
+.brand-v360 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #333333;
+  letter-spacing: -0.02em;
+}
+
+.brand-tagline {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #777777;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  display: block;
+  padding: 29px 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #333333;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.scrolled .nav-link {
+  padding: 19px 20px;
+}
+
+.nav-link:hover {
+  color: #D8AB4C;
+  border-bottom-color: #D8AB4C;
+}
+
+.nav-cta {
+  display: inline-block;
+  padding: 10px 24px;
+  background: #D8AB4C;
+  color: #FFFFFF;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.nav-cta:hover {
+  background: #C49A3C;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Mobile Menu */
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.menu-icon {
+  display: block;
+  width: 24px;
+  height: 20px;
+  position: relative;
+}
+
+.menu-icon span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #333333;
+  position: absolute;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.menu-icon span:nth-child(1) { top: 0; }
+.menu-icon span:nth-child(2) { top: 9px; }
+.menu-icon span:nth-child(3) { bottom: 0; }
+
+/* Hero Section - Vanderbilt Style */
+.hero-section {
+  position: relative;
+  padding: 80px 0;
+  overflow: hidden;
+  background: #F5F5F5; /* alternate section background */
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.15;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, 
+    rgba(245,245,245,0.95) 0%, 
+    rgba(250,250,250,0.85) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(216, 171, 76, 0.1);
+  border: 1px solid #D8AB4C;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #D8AB4C;
+  margin-bottom: 32px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 100;
+  line-height: 1.15;
+  margin-bottom: 24px;
+  color: #333333;
+}
+
+.title-emphasis {
+  display: block;
+  font-weight: 600;
+  color: #D8AB4C;
+  margin-top: 8px;
+}
+
+.hero-lead {
+  font-size: 1.375rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #666666;
+  margin-bottom: 48px;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 60px;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 3.5rem;
+  font-weight: 100;
+  color: #D8AB4C;
+  line-height: 1;
+}
+
+.stat-prefix,
+.stat-suffix {
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #777777;
+  margin-top: 8px;
+}
+
+/* Partners Section */
+.partners-section {
+  padding: 40px 0;
+  background: #FFFFFF;
+  border-top: 1px solid #E5E5E5;
+  border-bottom: 1px solid #E5E5E5;
+}
+
+.partners-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.partners-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #777777;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.partners-slider {
+  flex: 1;
+  overflow: hidden;
+}
+
+.partners-track {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  animation: scroll-partners 30s linear infinite;
+}
+
+.partner-logo {
+  height: 40px;
+  width: auto;
+  opacity: 0.5;
+  filter: grayscale(100%);
+  transition: all 0.3s ease;
+}
+
+.partner-logo:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+}
+
+@keyframes scroll-partners {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Sections */
+section {
+  padding: 80px 0;
+}
+
+/* Alternate backgrounds for sections */
+section:nth-child(even) {
+  background: #F5F5F5;
+}
+
+section:nth-child(odd) {
+  background: #FFFFFF;
+}
+
+/* Pattern overlay for certain sections */
+.philosophy-section::before,
+.network-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D8AB4C' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  z-index: 0;
+}
+
+/* Footer styles */
+.site-footer {
+  background: #333333;
+  color: #FFFFFF;
+  padding: 60px 0 40px;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.footer-brand h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #D8AB4C;
+}
+
+.footer-brand p {
+  margin: 0;
+  color: #E5E5E5;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 40px;
+}
+
+.footer-column h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.footer-column ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-column li {
+  margin-bottom: 8px;
+}
+
+.footer-column a {
+  color: #E5E5E5;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+  color: #D8AB4C;
+}
+
+.footer-bottom {
+  margin-top: 40px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  color: #E5E5E5;
+}
+
+.legal-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.legal-links a {
+  color: #E5E5E5;
+  text-decoration: none;
+}
+
+.legal-links a:hover {
+  color: #D8AB4C;
+}

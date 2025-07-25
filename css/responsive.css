@@ -1,0 +1,96 @@
+/*
+ * Responsive styles for the V.360 website.
+ *
+ * This stylesheet contains overrides for smaller breakpoints to ensure
+ * that navigation, hero content and other components scale down
+ * gracefully. If you wish to customise breakpoints further you can
+ * extend this file.
+ */
+
+@media (max-width: 992px) {
+  /* Reduce navigation gap and font sizes */
+  .nav-wrapper {
+    gap: 24px;
+  }
+  .nav-link {
+    padding: 24px 14px;
+    font-size: 0.75rem;
+  }
+  .nav-cta {
+    padding: 8px 20px;
+  }
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .hero-lead {
+    font-size: 1.125rem;
+  }
+  .hero-stats {
+    gap: 40px;
+  }
+  .stat-number {
+    font-size: 2.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Stack navigation items vertically on mobile */
+  .mobile-menu-toggle {
+    display: block;
+  }
+  .nav-wrapper {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background: #FFFFFF;
+    flex-direction: column;
+    align-items: flex-start;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    padding: 20px;
+    height: calc(100vh - 80px);
+    overflow-y: auto;
+    box-shadow: 2px 0 6px rgba(0,0,0,0.1);
+  }
+  .nav-wrapper.mobile-active {
+    transform: translateX(0);
+  }
+  .nav-menu {
+    flex-direction: column;
+    width: 100%;
+  }
+  .nav-link {
+    width: 100%;
+    padding: 16px 0;
+    border-bottom: 1px solid #E5E5E5;
+  }
+  .nav-cta {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+  }
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-lead {
+    font-size: 1rem;
+  }
+  .hero-stats {
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 40px;
+  }
+  .stat-number {
+    font-size: 2.5rem;
+  }
+  .stat-prefix,
+  .stat-suffix {
+    font-size: 1.75rem;
+  }
+  .partners-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}
