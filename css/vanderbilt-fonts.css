@@ -1,0 +1,10 @@
+/* Vanderbilt Fonts - Loaded via Adobe Typekit */
+@import url('https://use.typekit.net/fqo0mlk.css');
+
+/* Ensure Proxima Nova is available site-wide */
+body, p, li, a {
+  font-family: 'proxima-nova', sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'proxima-nova-condensed', 'proxima-nova', sans-serif;
+}
